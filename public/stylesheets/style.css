@@ -1,3 +1,17 @@
+:root {
+  --daze-blue: #00AAFF;
+}
+
+@font-face {
+  font-family: 'mont-header';
+  src: url('../fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'raleway';
+  src: url('../fonts/Raleway-VariableFont_wght.ttf');
+}
+
 * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -9,11 +23,69 @@
 }
 
 body {
-  padding: 50px;
+  padding: 20px;
 }
 
-a {
-  color: #00B7FF;
+.newMessage,
+.messages {
+  border: 2px dashed var(--daze-blue);
+  border-radius: 12px;
+  padding: 50px;
+  min-width: 550px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+h1 {
+  font-size: 2rem;
+  font-family: 'mont-header';
+  font-weight: 200;
+}
+
+.messages li {
+  outline: 1px solid black;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 12px;
+  min-width: 450px;
+  background-color: white;
+}
+
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageUserName {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 40%;
+  font-family: 'raleway';
+}
+
+.messageUserText {
+  padding-left: 20px;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+  font-family: 'mont-header';
+}
+
+.messageTimeAdded {
+  color: var(--daze-blue);
+}
+
+.messages a {
+  align-self: flex-start;
+  margin-top: -10px;
 }
 
 form {
@@ -21,17 +93,82 @@ form {
   flex-direction: column;
 }
 
-form input,
-form label,
-form textarea {
-  display: block;
-  width: 100%;
+.formName {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form textarea,
+form input {
+  padding: 8px;
+  border-radius: 12px;
+  border: none;
+  outline: 1px solid black;
+  margin-bottom: 20px;
+  font-family: 'mont-header';
+}
+
+form textarea:hover,
+form input:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+form textarea:focus,
+form input:focus {
+  outline: 2px solid black;
+  background-color: white;
 }
 
 form label {
   margin-bottom: 4px;
+  font-family: 'raleway';
+  font-weight: 500;
 }
 
 form textarea {
   resize: none;
+}
+
+.formButtons {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+a,
+form button {
+  padding: 8px 30px;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
+
+a,
+button {
+  font-family: 'raleway';
+}
+
+form button,
+.messages a {
+  border: none;
+  background-color: var(--daze-blue);
+  color: white;
+  font-weight: 700;
+}
+
+form button:hover,
+a:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+}
+
+form button:active,
+a:active {
+  box-shadow: none;
 }

@@ -5,12 +5,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>New Message</h1>
-    <form method="post" action="/new">
-      <label for="userMessage">Message:</label>
-      <textarea autofocus id="userMessage" name="userMessage" required rows="5"></textarea>
-      <label for="userName">Name:</label>
-      <input type="text" id="userName" name="userName" required>
-    </form>
+    <div class="newMessage">
+      <h1>New Message</h1>
+      <form method="post" action="/new">
+        <div class="formName">
+          <label for="userName">Name:</label>
+          <input autofocus type="text" id="userName" name="userName" required>
+        </div>
+        <label for="userMessage">Message (300 character limit):</label>
+        <textarea id="userMessage" name="userMessage" required rows="5" maxlength="300"></textarea>
+        <div class="formButtons">
+          <button type="submit">Post</button>
+          <a href="/">Cancel</a>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

@@ -1,17 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const moment = require('moment');
+const dateAndTime = require('../helpers/date');
 
 const messages = [
   {
     text: "Hi there!",
     user: "Heather",
-    added: moment().format('MMM D, YYYY [at] h:ma'),
+    added: dateAndTime(),
   },
   {
     text: "Check it out!",
     user: "Botrick",
-    added: moment().format('MMM D, YYYY [at] h:ma'),
+    added: dateAndTime(),
   }
 ];
 
@@ -29,8 +29,15 @@ router.get('/new', function(req, res, next) {
   });
 });
 
+
+/* New message POST */
 router.post('/new', function(req, res, next) {
-  req.body.userName
+  messages.push({
+    text: req.body.userMessage,
+    user: req.body.userName,
+    added: dateAndTime(),
+  });
+  res.redirect('/');
 });
 
 module.exports = router;

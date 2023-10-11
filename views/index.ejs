@@ -5,22 +5,26 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <ul>
-      <% messages.forEach(message => { %>
-        <li>
-          <p>
-            <%= message.text %>
-          </p>
-          <p>
-            <%= message.user %>
-          </p>
-          <p>
-            <%= message.added %>
-          </p>
-        </li>
-      <% }) %>
-    </ul>
+    <div class="messages">
+      <h1><%= title %></h1>
+      <ul>
+        <% messages.forEach(message => { %>
+          <li>
+            <div class="postHeader">
+              <p class="messageUserName">
+                <%= message.user %>
+              </p>
+              <p class="messageTimeAdded">
+                <%= message.added %>
+              </p>
+            </div>
+            <p class="messageUserText">
+              <%= message.text %>
+            </p>
+          </li>
+        <% }) %>
+      </ul>
+      <a href="/new">New Message</a>
+    </div>
   </body>
 </html>

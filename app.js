@@ -16,6 +16,7 @@ const mongoDB = "mongodb+srv://message-admin:1gTGrpXlOKzWF3A4@cluster0.hcn3jrk.m
 main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
+  console.log('connected to mongoDB');
 }
 
 // view engine setup
