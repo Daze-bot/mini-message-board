@@ -1,26 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const Message = require('../models/message');
 const dateAndTime = require('../helpers/date');
-
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Heather",
-    added: dateAndTime(),
-  },
-  {
-    text: "Check it out!",
-    user: "Botrick",
-    added: dateAndTime(),
-  }
-];
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { 
-    title: 'Mini Message Board',
-    messages: messages
-  });
+  run();
+  async function run() {
+    try {
+      const messages = await Message.find();
+      res.render('index', { 
+        title: 'Mini Message Board',
+        messages: messages,
+        utils: dateAndTime
+      });
+    } catch(e) {
+      console.log(e.message);
+    }
+  }
 });
 
 router.get('/new', function(req, res, next) {
@@ -32,11 +29,13 @@ router.get('/new', function(req, res, next) {
 
 /* New message POST */
 router.post('/new', function(req, res, next) {
-  messages.push({
-    text: req.body.userMessage,
-    user: req.body.userName,
-    added: dateAndTime(),
-  });
+  run();
+  async function run() {
+    const newMessage = await Message.create({
+      text: req.body.userMessage,
+      user: req.body.userName,
+    });
+  };
   res.redirect('/');
 });
 

@@ -1,7 +1,7 @@
 const moment = require('moment');
 
-const dateAndTime = () => {
-  return moment().format('MMM D, YYYY [at] h:mma');
+const dateAndTime = (time) => {
+  return moment(time).format('MMM D, YYYY [at] h:mma');
 }
 
 module.exports = dateAndTime;
