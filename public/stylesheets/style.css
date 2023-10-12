@@ -1,5 +1,6 @@
 :root {
   --daze-blue: #00AAFF;
+  --bg-grey: rgba(128, 128, 128, 0.2);
 }
 
 @font-face {
@@ -37,7 +38,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: rgba(128, 128, 128, 0.2);
+  background-color: var(--bg-grey);
+  position: relative;
 }
 
 h1 {
@@ -171,4 +173,30 @@ a:hover {
 form button:active,
 a:active {
   box-shadow: none;
+}
+
+#refresh {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#refresh:hover {
+  box-shadow: none;
+}
+
+#refresh img {
+  transition: all 1s;
+  width: 30px;
+}
+
+#refresh img:hover {
+  transform: rotate(180deg);
 }

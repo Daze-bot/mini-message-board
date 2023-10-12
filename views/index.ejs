@@ -7,6 +7,7 @@
   <body>
     <div class="messages">
       <h1><%= title %></h1>
+      <a id="refresh" href="/"><img src="./images/refresh.svg" alt="refresh"/></a>
       <ul>
         <% messages.forEach(message => { %>
           <li>
@@ -15,7 +16,7 @@
                 <%= message.user %>
               </p>
               <p class="messageTimeAdded">
-                <%= utils(message.dateAdded) %>
+                <%= message.formatDate %>
               </p>
             </div>
             <p class="messageUserText">
