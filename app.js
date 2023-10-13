@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoURI = require('./private/config');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -11,7 +12,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://message-admin:1gTGrpXlOKzWF3A4@cluster0.hcn3jrk.mongodb.net/messageBoardDB?retryWrites=true&w=majority";
+const mongoDB = mongoURI;
 
 main().catch(err => console.log(err));
 async function main() {

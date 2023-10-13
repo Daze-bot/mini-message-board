@@ -60,5 +60,5 @@ typings/
 # next.js build output
 .next
 
-#internal notes
-/dev-notes.txt
+#internal notes and files
+private/
