@@ -3,20 +3,20 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const mongoURI = require('./private/config');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
 
+require('dotenv').config();
+
 const mongoose = require('mongoose');
 mongoose.set("strictQuery", false);
-const mongoDB = mongoURI;
 
 main().catch(err => console.log(err));
 async function main() {
-  await mongoose.connect(mongoDB);
+  await mongoose.connect(process.env.mongoURI);
   console.log('connected to mongoDB');
 }
 
