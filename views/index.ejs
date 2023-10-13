@@ -3,11 +3,13 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="messages">
       <h1><%= title %></h1>
       <a id="refresh" href="/"><img src="./images/refresh.svg" alt="refresh"/></a>
+      <a href="/new">New Message</a>
       <ul>
         <% messages.forEach(message => { %>
           <li>
@@ -25,7 +27,6 @@
           </li>
         <% }) %>
       </ul>
-      <a href="/new">New Message</a>
     </div>
   </body>
 </html>
