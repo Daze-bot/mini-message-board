@@ -8,7 +8,7 @@
   <body>
     <div class="messages">
       <h1><%= title %></h1>
-      <a id="refresh" href="/"><img src="./images/refresh.svg" alt="refresh"/></a>
+      <a id="refresh" href="/all"><img src="./images/refresh.svg" alt="refresh"/></a>
       <a href="/new">New Message</a>
       <ul>
         <% messages.forEach(message => { %>
@@ -27,9 +27,7 @@
           </li>
         <% }) %>
       </ul>
-      <% if (count > 40) { %>
-        <a id="viewChange" href="/all">View all messages</a>
-      <% } %>
+      <a id="viewChange" href="/">Return to Home</a>
     </div>
   </body>
 </html>

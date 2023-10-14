@@ -199,3 +199,7 @@ a:active {
 #refresh img:hover {
   transform: rotate(180deg);
 }
+
+#viewChange {
+  align-self: center;
+}
